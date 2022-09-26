@@ -1,0 +1,20 @@
+﻿@model MVCHASTANE.Models.Entity.tbl_hasta
+@{
+    ViewBag.Title = "Yenihasta";
+    Layout = "~/Views/Shared/mainlayout.cshtml";
+}
+<form class="form-group" method="post">
+    <div>
+        <label>HASTA ADI VE SOYADI</label>
+
+        @Html.TextBoxFor(m => m.hastaadsoyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.hastaadsoyad, "", new { @style = "color:blue" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Hasta Ekle</button>
+    </div>
+</form>
+
+
+
+

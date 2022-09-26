@@ -1,0 +1,60 @@
+﻿@using MVCHASTANE.Models.Entity
+@model List<tbl_bolum>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/mainlayout.cshtml";
+}
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>BÖLUM ID</th>
+            <th>BÖLÜM ADI</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bol in Model)
+        {
+            <tr>
+                <th>@bol.bolumid</th>
+                <td>@bol.bolumad</td>
+
+
+                <td><a href="/Bolum/sil/@bol.bolumid" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Bolum/bolumgetir/@bol.bolumid" class="btn btn-info">GUNCELLE</a></td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+<a href="/Bolum/YeniBolum/" class="btn btn-info">Bölüm Ekle</a>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<style>
+    body {
+        background-image: url('../../doktorlarımız.jpg');
+        background-size: cover;
+    }
+
+    .table-bordered {
+        background-color: cornflowerblue;
+        color: aliceblue;
+    }
+</style>
+<script>
+    $('#tbl1').DataTable();
+</script>
+
+

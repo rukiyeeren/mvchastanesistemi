@@ -1,0 +1,24 @@
+﻿@model MVCHASTANE.Models.Entity.tbl_doktor
+@{
+    ViewBag.Title = "doktorgetir";
+    Layout = "~/Views/Shared/mainlayout.cshtml";
+}
+@using (Html.BeginForm("Guncelle", "Doktor", FormMethod.Post))
+{
+<div class="form-group">
+
+    @Html.LabelFor(m => m.doktorid)
+    @Html.TextBoxFor(m => m.doktorid, new { @class = "form-control", @readonly = "readonly" })
+
+    @Html.LabelFor(m => m.doktoradisoyadi)
+    @Html.TextBoxFor(m => m.doktoradisoyadi, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.doktorbolum)
+    @Html.TextBoxFor(m => m.doktorbolum, new { @class = "form-control" })
+</div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Doktor Güncelle</button>
+    </div>
+}
+
+

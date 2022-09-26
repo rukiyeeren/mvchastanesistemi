@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "doktorlar";
+    Layout = "~/Views/Shared/mainlayout.cshtml";
+}
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<section id="div" class="vh-100" style="height:300px;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h1 style="color:white; font-size:80px; " class="mb-5">Doktorlarımız</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div>
+    <img src="~/doktorlar/d1.jpg" />
+    <h3>
+        Profesör Doktor
+        A.BÜLENT OKTAY
+        Üroloji
+    </h3>
+    <br />
+    <br />
+
+    <img src="~/doktorlar/d5.jpg" />
+    <h3>
+        Profesör Doktor
+        ARZU AKÇAY
+        Çocuk Hematolojisi, Çocuk Onkolojisi
+    </h3>
+    <br />
+    <br />
+
+    <img src="~/doktorlar/d3.jpg" />
+    <h3>
+        Profesör Doktor
+        ATAKAN YEŞİL
+        Gastroenteroloji
+    </h3>
+    <br />
+    <br />
+    <img src="~/doktorlar/d4.png" />
+    <h3>
+        Profesör Doktor
+        AYŞE SARIOĞLU
+        Çocuk Kardiyolojisi
+    </h3>
+</div>
+<style>
+    img {
+        height: 300px;
+    }
+
+    h3 {
+        color: Highlight;
+    }
+
+    section {
+        border-radius: 20px 20px 20px 20px;
+        background-image: url('../../anasayfa.jpg');
+    }
+</style>
+
+

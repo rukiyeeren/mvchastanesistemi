@@ -1,0 +1,48 @@
+﻿@model MVCHASTANE.Models.Entity.tbl_randevu
+@{
+    ViewBag.Title = "randevugetir";
+    Layout = "~/Views/Shared/mainlayout.cshtml";
+}
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+@using (Html.BeginForm("Guncelle", "Randevu", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.randevuid)
+        @Html.TextBoxFor(m => m.randevuid, new { @class = "form-control", @readonly = "readonly" })
+
+        @Html.LabelFor(m => m.randevuadsoyad)
+        @Html.TextBoxFor(m => m.randevuadsoyad, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.randevutcno)
+        @Html.TextBoxFor(m => m.randevutcno, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.randevutel)
+        @Html.TextBoxFor(m => m.randevutcno, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.tbl_doktor.doktorid)
+        @Html.DropDownListFor(m => m.tbl_doktor.doktorid, (List<SelectListItem>)ViewBag.dok, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.tbl_bolum.bolumid)
+        @Html.DropDownListFor(m => m.tbl_bolum.bolumid, (List<SelectListItem>)ViewBag.blm, new { @class = "form-control" })
+
+
+        @Html.LabelFor(m => m.randevutarihsaat)
+        @Html.TextBoxFor(m => m.randevutarihsaat, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Randevu Güncelle</button>
+    </div>
+}
+
+
+
+
+

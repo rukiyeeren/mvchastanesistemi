@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCHASTANEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_bolum">
+    <Key>
+      <PropertyRef Name="bolumid" />
+    </Key>
+    <Property Name="bolumid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bolumad" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_doktor">
+    <Key>
+      <PropertyRef Name="doktorid" />
+    </Key>
+    <Property Name="doktorid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="doktoradisoyadi" Type="nvarchar" MaxLength="50" />
+    <Property Name="doktorbolum" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_giris">
+    <Key>
+      <PropertyRef Name="kullaniciid" />
+    </Key>
+    <Property Name="kullaniciid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullaniciad" Type="nvarchar" MaxLength="50" />
+    <Property Name="kullanicisifre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_hasta">
+    <Key>
+      <PropertyRef Name="hastaid" />
+    </Key>
+    <Property Name="hastaid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hastaadsoyad" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_iletisim">
+    <Key>
+      <PropertyRef Name="iletisimid" />
+    </Key>
+    <Property Name="iletisimid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="iletisimadsoyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="iletisimmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="iletisimkonu" Type="nvarchar" MaxLength="50" />
+    <Property Name="iletisimmesaj" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_randevu">
+    <Key>
+      <PropertyRef Name="randevuid" />
+    </Key>
+    <Property Name="randevuid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="randevuadsoyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="randevutcno" Type="char" MaxLength="11" />
+    <Property Name="randevutel" Type="char" MaxLength="11" />
+    <Property Name="randevudoktorid" Type="int" />
+    <Property Name="randevubolumid" Type="int" />
+    <Property Name="randevutarihsaat" Type="datetime" />
+    <Property Name="randevuhastaid" Type="int" />
+  </EntityType>
+  <Association Name="FK_tbl_randevu_tbl_bolum">
+    <End Role="tbl_bolum" Type="Self.tbl_bolum" Multiplicity="0..1" />
+    <End Role="tbl_randevu" Type="Self.tbl_randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_bolum">
+        <PropertyRef Name="bolumid" />
+      </Principal>
+      <Dependent Role="tbl_randevu">
+        <PropertyRef Name="randevubolumid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_randevu_tbl_doktor">
+    <End Role="tbl_doktor" Type="Self.tbl_doktor" Multiplicity="0..1" />
+    <End Role="tbl_randevu" Type="Self.tbl_randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_doktor">
+        <PropertyRef Name="doktorid" />
+      </Principal>
+      <Dependent Role="tbl_randevu">
+        <PropertyRef Name="randevudoktorid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_randevu_tbl_hasta">
+    <End Role="tbl_hasta" Type="Self.tbl_hasta" Multiplicity="0..1" />
+    <End Role="tbl_randevu" Type="Self.tbl_randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_hasta">
+        <PropertyRef Name="hastaid" />
+      </Principal>
+      <Dependent Role="tbl_randevu">
+        <PropertyRef Name="randevuhastaid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MVCHASTANEModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_bolum" EntityType="Self.tbl_bolum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_doktor" EntityType="Self.tbl_doktor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_giris" EntityType="Self.tbl_giris" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_hasta" EntityType="Self.tbl_hasta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_iletisim" EntityType="Self.tbl_iletisim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_randevu" EntityType="Self.tbl_randevu" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_randevu_tbl_bolum" Association="Self.FK_tbl_randevu_tbl_bolum">
+      <End Role="tbl_bolum" EntitySet="tbl_bolum" />
+      <End Role="tbl_randevu" EntitySet="tbl_randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_randevu_tbl_doktor" Association="Self.FK_tbl_randevu_tbl_doktor">
+      <End Role="tbl_doktor" EntitySet="tbl_doktor" />
+      <End Role="tbl_randevu" EntitySet="tbl_randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_randevu_tbl_hasta" Association="Self.FK_tbl_randevu_tbl_hasta">
+      <End Role="tbl_hasta" EntitySet="tbl_hasta" />
+      <End Role="tbl_randevu" EntitySet="tbl_randevu" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

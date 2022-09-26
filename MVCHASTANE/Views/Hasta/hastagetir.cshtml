@@ -1,0 +1,20 @@
+﻿@model MVCHASTANE.Models.Entity.tbl_hasta
+@{
+    ViewBag.Title = "hastagetir";
+    Layout = "~/Views/Shared/mainlayout.cshtml";
+}
+@using (Html.BeginForm("Guncelle", "Hasta", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.hastaid)
+        @Html.TextBoxFor(m => m.hastaid, new { @class = "form-control", @readonly = "readonly" })
+
+        @Html.LabelFor(m => m.hastaadsoyad)
+        @Html.TextBoxFor(m => m.hastaadsoyad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Hasta Güncelle</button>
+    </div>
+}
+

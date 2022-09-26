@@ -1,0 +1,76 @@
+﻿@using MVCHASTANE.Models.Entity
+@model List<tbl_randevu>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/mainlayout.cshtml";
+}
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>RANDEVU ID</th>
+            <th>RANEVU AD VE SOYADI</th>
+            <th>RANDEVU TCNO
+            <th>RANDEVU TELEFON</th>
+            <th>DOKTOR</th>
+            <th>BÖLÜMÜ</th>
+            <th>TARİHİ VE SAATİ</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+        @foreach (var r in Model)
+        {
+            <tr>
+                <th>@r.randevuid</th>
+                <td>@r.randevuadsoyad</td>
+                <td>@r.randevutcno</td>
+                <td>@r.randevutel</td>
+                <td>@r.tbl_doktor.doktoradisoyadi</td>
+                <td>@r.tbl_bolum.bolumad</td>
+                <td>@r.randevutarihsaat</td>
+
+
+
+                <td><a href="/Randevu/sil/@r.randevuid" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Randevu/randevugetir/@r.randevuid" class="btn btn-info">GUNCELLE</a></td>
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+<a href="/Randevu/Yenirandevu/" class="btn btn-info">Randevu Ekle</a>
+<style>
+    body {
+        background-image: url('../../doktorlarımız.jpg');
+        background-size: cover;
+    }
+
+    .table-bordered {
+        background-color: cornflowerblue;
+        color: aliceblue;
+    }
+</style>
+<script>
+    $('#tbl1').DataTable();
+</script>
+
+
+
+

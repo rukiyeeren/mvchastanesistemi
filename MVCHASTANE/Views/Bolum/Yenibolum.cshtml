@@ -1,0 +1,23 @@
+﻿@model MVCHASTANE.Models.Entity.tbl_bolum
+@{
+    ViewBag.Title = "Yenibolum";
+    Layout = "~/Views/Shared/mainlayout.cshtml";
+}
+<form class="form-group" method="post">
+    <div>
+        <label>BÖLÜM ADI</label>
+
+        @Html.TextBoxFor(m => m.bolumad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.bolumad, "", new { @style = "color:blue" })
+
+     
+
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Bölüm Ekle</button>
+    </div>
+</form>
+
+
+

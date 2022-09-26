@@ -1,0 +1,19 @@
+﻿@model MVCHASTANE.Models.Entity.tbl_bolum
+@{
+    ViewBag.Title = "bolumgetir";
+    Layout = "~/Views/Shared/mainlayout.cshtml";
+}
+@using (Html.BeginForm("Guncelle", "Bolum", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.bolumid)
+        @Html.TextBoxFor(m => m.bolumid, new { @class = "form-control", @readonly = "readonly" })
+
+        @Html.LabelFor(m => m.bolumad)
+        @Html.TextBoxFor(m => m.bolumad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Bölüm Güncelle</button>
+    </div>
+}

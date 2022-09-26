@@ -1,0 +1,28 @@
+﻿@model MVCHASTANE.Models.Entity.tbl_doktor
+@{
+    ViewBag.Title = "Yenidoktor";
+    Layout = "~/Views/Shared/mainlayout.cshtml";
+}
+<form class="form-group" method="post">
+    <div>
+        <label>DOKTOR ADI VE SOYADI</label>
+
+        @Html.TextBoxFor(m => m.doktoradisoyadi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.doktoradisoyadi, "", new { @style = "color:blue" })
+
+        <label>BÖLÜMÜ</label>
+        @Html.TextBoxFor(m => m.doktorbolum, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.doktorbolum, "", new { @style = "color:blue" })
+
+
+
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Doktor Ekle</button>
+    </div>
+</form>
+
+
+
+
